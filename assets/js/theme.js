@@ -14,6 +14,7 @@ tailwind.config = {
                 display: ['Poppins', 'ui-sans-serif', 'system-ui'],
                 body: ['Inter', 'ui-sans-serif', 'system-ui']
             }
+           
         }
     }
 }
