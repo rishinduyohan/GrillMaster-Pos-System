@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,54 +15,56 @@
 </head>
 
 <body class="bg-black text-secondary font-body">
-  <!-- Navbar -->
-  <header class="sticky top-0 z-50 absolute backdrop-blur border-b border-black/5 navbar" id="navbar"></header>
+  <div>
+    <img src="assets/images/background.jpg" alt="burger background"
+      class="absolute inset-0 w-full h-full object-cover -z-10">
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 absolute backdrop-blur " id="navbar"></header>
 
-  <!-- Hero -->
-  <section class="relative h-screen flex flex-col items-center justify-center text-center " >
-    <img src="assets/images/background.jpg"
-      alt="burger background" class="absolute inset-0 w-full h-full object-cover -z-10">
-    <div class="absolute inset-0 -z-10 mt-6 mb-6">
-    <h1 class="lg:text-[10rem] font-extrabold tracking-widest text-gray-200 opacity-70 leading-none">BURGER</h1>
-    </div>
-    <div class="overlay mt-[-3rem] px-10 py-8 rounded-2xl max-w-2xl text-center border">
-      <h2 class="text-xl font-bold mb-4 tracking-widest">GRILL MASTER</h2>
-      <p class="text-gray-200 text-sm leading-relaxed">
-        A burger is a patty of ground beef grilled and placed between two halves of a bun.
-        Slices of raw onion, lettuce, bacon, mayonnaise, and other ingredients add flavor.
-        Burgers are considered an American food but are popular around the world.
-        In Japan, teriyaki burgers are popular.
-      </p>
-      <button
-        class="mt-6 bg-yellow-500 text-black px-6 py-2 rounded-full font-bold shadow-lg hover:bg-yellow-400 transition">Order
-        now</button>
-
-      <!-- Bottom Stats -->
-      <div class="flex justify-around mt-8 text-sm">
-        <div class="flex flex-col items-center">
-          <div class="flex -space-x-2 mb-2">
-            <img class="w-8 h-8 rounded-full border-2 border-black"
-              src="https://randomuser.me/api/portraits/men/32.jpg" />
-            <img class="w-8 h-8 rounded-full border-2 border-black"
-              src="https://randomuser.me/api/portraits/women/45.jpg" />
-            <img class="w-8 h-8 rounded-full border-2 border-black"
-              src="https://randomuser.me/api/portraits/men/12.jpg" />
+    <!-- Hero -->
+    <section class="relative flex flex-col items-center justify-center text-center min-h-screen px-6">
+      <div class="absolute inset-0 bg-black/50 -z-10"></div>
+      <h1 class="text-6xl sm:text-8xl lg:text-[10rem] font-extrabold tracking-widest text-gray-200 opacity-70">BURGER
+      </h1>
+      <div class="bg-black/50 backdrop-blur-md mt-[-2rem] p-6 sm:p-10 rounded-2xl max-w-2xl">
+        <h2 class="text-xl font-bold mb-4 tracking-widest">Grill Master</h2>
+        <p class="text-gray-200 text-sm sm:text-base leading-relaxed">
+          A burger is a patty of ground beef grilled and placed between two halves of a bun.
+          Slices of raw onion, lettuce, bacon, mayonnaise, and other ingredients add flavor.
+          Burgers are considered an American food but are popular around the world.
+          In Japan, teriyaki burgers are popular.
+        </p>
+        <button
+          class="mt-6 bg-yellow-500 text-black px-6 py-2 rounded-full font-bold shadow-lg hover:bg-yellow-400 transition">Order
+          now</button>
+        <div class="flex flex-col sm:flex-row justify-around mt-8 text-sm gap-6 sm:gap-0">
+          <div class="flex flex-col items-center">
+            <div class="flex -space-x-2 mb-2">
+              <img class="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-black"
+                src="https://randomuser.me/api/portraits/men/32.jpg" />
+              <img class="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-black"
+                src="https://randomuser.me/api/portraits/women/45.jpg" />
+              <img class="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-black"
+                src="https://randomuser.me/api/portraits/men/12.jpg" />
+            </div>
+            <span class="font-bold">56k+</span>
+            <span>Reviews</span>
           </div>
-          <span>56k Reviews</span>
-        </div>
-        <div class="flex flex-col items-center">
-          <img src="https://img.icons8.com/fluency/48/city.png" class="w-8 h-8 mb-2" />
-          <span>15 City+</span>
-        </div>
-        <div class="flex flex-col items-center">
-          <img src="https://img.icons8.com/color/48/hamburger.png" class="w-8 h-8 mb-2" />
-          <span>445+ Items</span>
+          <div class="flex flex-col items-center">
+            <img src="https://img.icons8.com/fluency/48/city.png" class="w-7 h-7 sm:w-8 sm:h-8 mb-2" />
+            <span class="font-bold">15+</span>
+            <span>City</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <img src="https://img.icons8.com/color/48/hamburger.png" class="w-7 h-7 sm:w-8 sm:h-8 mb-2" />
+            <span class="font-bold">445+</span>
+            <span>Items</span>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-
+  </div>
   <!-- About Us-->
   <section id="about" class="py-16 mt-8 "
     style="background-image: url('assets/images/steptodown.com545537.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
