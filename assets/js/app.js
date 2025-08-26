@@ -13,14 +13,14 @@ if (navbarItem) {
     navbar.innerHTML = `
         <div class="max-w-7xl mx-auto px-4">
                 <div class="flex items-center justify-between h-16">
-                    <a href="#" class="flex items-center gap-2">
-                        <span class="font-display text-xl font-bold text-green">Chop-Shock</span>
+                   <a href="index.html" class="font-black tracking-tight text-xl">
+                        <span class="text-red-600">Grill</span>Master
                     </a>
                     <nav class="hidden md:flex items-center gap-8">
                         <a href="index.html#home" class="hover:text-orange">Home</a>
-                        <a href="index.html#recipes" class="hover:text-orange">Recipe</a>
-                        <a href="index.html#community" class="hover:text-orange">Community</a>
-                        <a href="index.html#about" class="hover:text-orange">About Us</a>
+                        <a href="index.html#recipes" class="hover:text-orange">Service</a>
+                        <a href="index.html#community" class="hover:text-orange">Menu</a>
+                        <a href="index.html#about" class="hover:text-orange">Shop</a>
                     </nav>
                     <div class="hidden md:flex items-center gap-3">
                         <a href="#"
