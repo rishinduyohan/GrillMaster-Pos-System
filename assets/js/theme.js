@@ -4,7 +4,7 @@ tailwind.config = {
             colors: {
                 primary: '#F3F3F3',
                 secondary: '#312F2F',
-                accent: '#FE5E54',
+                accent: '#cd463cff',
                 bisque: '#75B8EE',
                 green: '#046E1B',
                 gray: '#D9D9D9',
