@@ -11,7 +11,7 @@ const responseNav = () => {
 if (navbarItem) {
     const navbar = document.createElement("div");
     navbar.innerHTML = `
-        <div class="max-w-7xl mx-auto px-4">
+        <div class="max-w-7xl mx-auto px-4 ">
                 <div class="flex items-center justify-between h-16">
                    <a href="index.html" class="font-black tracking-tight text-xl">
                         <span class="text-red-600">Grill</span>Master
@@ -44,7 +44,7 @@ if (navbarItem) {
                     </button>
                 </div>
             </div>
-            <div id="mobileMenu" class="sticky md:hidden hidden border-t border-black/5 bg-gray text-center">
+            <div id="mobileMenu" class="sticky md:hidden hidden border-t border-black/5 backdrop-blur text-center">
                 <div class="px-4 py-3 space-y-2">
                     <a href="index.html#home" class="block py-2">Home</a>
                     <a href="index.html#recipes" class="block py-2">Service</a>
