@@ -26,11 +26,12 @@
 </head>
 
 <body class="bg-black text-white font-sans">
+  <!-- Navbar -->
   <header class="sticky top-0 z-50 absolute backdrop-blur " id="navbar"></header>
   <div>
-    <img src="assets/images/background.jpg" alt="burger background"
-      class="absolute inset-0 w-full h-full object-cover -z-10">
-    <!-- Navbar -->
+    <video autoplay muted loop>
+    <source src="assets/images/small-vecteezy_delicious-hamburger-on-fire_1626001_small.mp4" type="video/mp4">
+    </video>
 
     <!-- Hero -->
     <section class="relative flex flex-col items-center justify-center text-center min-h-screen px-6">
@@ -39,7 +40,7 @@
         </h1>
       </div>
       <div class="bg-black/50 backdrop-blur-md mt-[-2rem] p-10 sm:p-10 rounded-2xl max-w-2xl">
-        <h2 class="text-xl font-bold mb-4 tracking-widest">Grill Master</h2>
+        <h2 class="text-2xl font-bold mb-4 tracking-widest"><span class="text-accent">Grill</span>Master</h2>
         <p class="text-gray-200 text-sm sm:text-base leading-relaxed">
           A burger is a patty of ground beef grilled and placed between two halves of a bun.
           Slices of raw onion, lettuce, bacon, mayonnaise, and other ingredients add flavor.
@@ -106,7 +107,8 @@
   <!-- Services -->
   <section id="services" class="px-6 py-16 text-center">
     <h2 class=" sm:text-4xl mb-8">How we can serve you and <br><span class="text-accent">Deliver</span> your favorite's
-      <span class="text-yellow-400">Food</span></h2>
+      <span class="text-yellow-400">Food</span>
+    </h2>
 
     <p class="max-w-2xl mx-auto text-gray-400 mb-10">
       We always provide the best service for you and deliver your favorite food to your location.
@@ -132,6 +134,7 @@
       </div>
     </div>
   </section>
+  <!--Food review-->
   <section class="bg-black text-white py-20 px-6 md:px-16 flex flex-col md:flex-row items-center gap-10">
     <div class="w-full md:w-1/2 flex justify-center">
       <img src="assets/images/steptodown.com606286.jpg" alt="burger flames" class="max-h-[500px] object-contain">
@@ -160,7 +163,7 @@
 
   <!-- Meet Our Chef section-->
   <section id="chefs" class="px-6 py-16 text-center">
-    <h2 class="text-2xl font-bold mb-10">Meet Our Chefs</h2>
+    <h2 class="text-2xl font-bold mb-10">Meet Our <span class="text-yellow-400">Chefs</span></h2>
     <div class="grid sm:grid-cols-4 gap-6">
       <div class="bg-gray-900 p-6 rounded-xl">
         <img src="https://randomuser.me/api/portraits/men/22.jpg" class="w-24 h-24 mx-auto rounded-full mb-4">
@@ -176,13 +179,13 @@
       </div>
       <div class="bg-gray-900 p-6 rounded-xl">
         <img src="https://randomuser.me/api/portraits/men/29.jpg" class="w-24 h-24 mx-auto rounded-full mb-4">
-        <h3 class="font-bold">Shing Chu Shang</h3>
+        <h3 class="font-bold">John Cina</h3>
       </div>
     </div>
   </section>
 
   <!--Footer section-->
-  <footer class="border-t border-black/5 bg-white" id="footer"></footer>
+  <footer class="border-t border-black/5 bg-black" id="footer"></footer>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="assets/js/app.js"></script>
   <script src="assets/js/script.js"></script>
