@@ -18,9 +18,9 @@ if (navbarItem) {
                     </a>
                     <nav class="hidden md:flex items-center gap-8">
                         <a href="index.html#home" class="hover:text-orange">Home</a>
-                        <a href="index.html#recipes" class="hover:text-orange">Service</a>
-                        <a href="index.html#community" class="hover:text-orange">Menu</a>
-                        <a href="index.html#about" class="hover:text-orange">Shop</a>
+                        <a href="index.html#service" class="hover:text-orange">Service</a>
+                        <a href="menu.html" class="hover:text-orange">Menu</a>
+                        <a href="menu.html" class="hover:text-orange">Shop</a>
                     </nav>
                     <div class="hidden md:flex items-center gap-3">
                     <div class="flex items-center gap-4">
@@ -29,7 +29,7 @@ if (navbarItem) {
                     </button>
                         <input id="searchInput" type="text" placeholder="Search..." class="hidden sm:block border rounded-lg px-2 py-1 text-sm">
                     </div>
-                        <a href="index.html#recipes" class="flex-1 text-center px-3 py-2 rounded-lg bg-accent text-white">Log In</a>
+                        <a href="login.html" class="flex-1 text-center px-3 py-2 rounded-lg bg-accent text-white">Log In</a>
                     </div>
                     <button id="menuBtn"
                         class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-secondary/20">
@@ -44,12 +44,12 @@ if (navbarItem) {
             <div id="mobileMenu" class="sticky md:hidden hidden border-t border-black/5 backdrop-blur text-center">
                 <div class="px-4 py-3 space-y-2">
                     <a href="index.html#home" class="block py-2">Home</a>
-                    <a href="index.html#recipes" class="block py-2">Service</a>
-                    <a href="index.html#community" class="block py-2">Menu</a>
-                    <a href="index.html#about" class="block py-2">Shop</a>
+                    <a href="index.html#service" class="block py-2">Service</a>
+                    <a href="menu.html" class="block py-2">Menu</a>
+                    <a href="menu.html" class="block py-2">Shop</a>
                     <a href="cart.html" class="block py-2">Cart 🛒 </a>
                     <div class="pt-2 border-t border-black/5 flex gap-2">
-                        <a href="index.html#recipes" class="flex-1 text-center px-3 py-2 rounded-lg bg-accent text-white">Log In</a>
+                        <a href="login.html" class="flex-1 text-center px-3 py-2 rounded-lg bg-accent text-white">Log In</a>
                     </div>
                 </div>
             </div>
