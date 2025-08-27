@@ -27,7 +27,7 @@ if (navbarItem) {
                     <button id="cartBtn" class="relative">
                         🛒<span id="cartCount" class="absolute -top-2 -right-2 text-xs bg-red-600 text-white rounded-full px-1">0</span>
                     </button>
-                        <input id="searchInput" type="text" placeholder="Search..." class="hidden sm:block border rounded-lg px-2 py-1 text-sm">
+                      <input type="text" placeholder="Search your Burger" class="w-50 px-2 py-1 rounded-lg text-black outline-none" />
                     </div>
                         <a href="login.html" class="flex-1 text-center px-3 py-2 rounded-lg bg-accent text-white">Log In</a>
                     </div>
@@ -59,7 +59,7 @@ if (navbarItem) {
 }
 if(footerItem){
     const footer = document.createElement("div");
-    footer.className = "mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8";
+    footer.className = " px-4 py-16 sm:px-6 lg:px-8";
     footer.innerHTML = `
         <div class="lg:flex lg:items-start lg:gap-8">
         <div class="mt-8 grid grid-cols-2 gap-8 lg:mt-0 lg:grid-cols-5 lg:gap-y-16">
