@@ -1,6 +1,6 @@
-console.log("Link to Web");
+// console.log("Link to Web");
 const items = document.getElementById('menu-items');
-
+const trendRecip = document.getElementById('trends');
 const menuItems = [
   {
     id: 1,
@@ -92,6 +92,7 @@ if(items){
     menuItems.forEach(item => {
         const div = document.createElement('div');
         div.className = "flex items-center bg-gray-900 rounded-xl p-4 gap-4";
+        div.setAttribute("data-aos", "zoom-in");
         div.innerHTML=`
             <img src="${item.img}" class="w-28 h-28 object-cover rounded-lg" alt="burger">
             <div>
