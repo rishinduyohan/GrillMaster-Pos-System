@@ -20,70 +20,70 @@ const menuItems = [
     id: 3,
     name: "Cheese Overload",
     des: "Loaded with mozzarella, cheddar & creamy cheese sauce",
-    img: "https://freesvg.org/storage/img/burger-vector-illustration.png",
+    img: "assets/images/Classic Cheeseburger.jpg",
     price: "Rs.820"
   },
   {
     id: 4,
     name: "Veggie Delight",
     des: "Crispy veg patty with lettuce, tomato, cucumber & mint mayo",
-    img: "https://freesvg.org/storage/img/burger-vector-illustration.png",
+    img: "assets/images/Chicken Crispy Burger.jpg",
     price: "Rs.650"
   },
   {
     id: 5,
     name: "Spicy Paneer Burger",
     des: "Paneer tikka patty with spicy peri-peri mayo & jalapeños",
-    img: "https://freesvg.org/storage/img/burger-vector-illustration.png",
+    img: "assets/images/Double Beef Stack.jpg",
     price: "Rs.700"
   },
   {
     id: 6,
     name: "BBQ Bacon Burger",
     des: "Grilled beef, crispy bacon, smoked BBQ sauce & caramelised onions",
-    img: "https://freesvg.org/storage/img/burger-vector-illustration.png",
+    img: "assets/images/Fish-Fillet-Burger.jpg",
     price: "Rs.950"
   },
   {
     id: 7,
     name: "Fish Fillet Burger",
     des: "Crispy fried fish fillet with tartar sauce & fresh lettuce",
-    img: "https://freesvg.org/storage/img/burger-vector-illustration.png",
+    img: "assets/images/Mushroom Swiss Burger.jpg",
     price: "Rs.780"
   },
   {
     id: 8,
     name: "Double Decker",
     des: "Two patties, double cheese, lettuce & house special sauce",
-    img: "https://freesvg.org/storage/img/burger-vector-illustration.png",
+    img: "assets/images/Spicy Jalapeño Burger.jpg",
     price: "Rs.1050"
   },
   {
     id: 9,
     name: "Classic Beef Burger",
     des: "Seasoned beef patty with tomato, lettuce, onions & mayo",
-    img: "https://freesvg.org/storage/img/burger-vector-illustration.png",
+    img: "assets/images/Veggie Garden Burger.jpg",
     price: "Rs.720"
   },
   {
     id: 10,
     name: "Peri Peri Chicken",
     des: "Grilled chicken breast marinated in peri-peri sauce",
-    img: "https://freesvg.org/storage/img/burger-vector-illustration.png",
+    img: "assets/images/Chicken Crispy Burger.jpg",
     price: "Rs.800"
   },
   {
     id: 11,
     name: "Mushroom Swiss Burger",
     des: "Grilled beef patty topped with mushrooms & Swiss cheese",
-    img: "https://freesvg.org/storage/img/burger-vector-illustration.png",
+    img: "assets/images/BBQ Smokehouse Burger.jpg",
     price: "Rs.880"
   },
   {
     id: 12,
     name: "Tandoori Burger",
     des: "Indian-style chicken patty with tandoori spices & mint chutney",
-    img: "https://freesvg.org/storage/img/burger-vector-illustration.png",
+    img: "assets/images/Classic Cheeseburger.jpg",
     price: "Rs.770"
   }
 ];
