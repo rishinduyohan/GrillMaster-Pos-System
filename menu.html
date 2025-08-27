@@ -22,8 +22,92 @@
         }
     </style>
 </head>
+
 <body>
-    
+    <section class="bg-gradient-to-b from-black to-gray-900 text-white py-16 px-6">
+
+        <!-- Search bar -->
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-3 mb-10">
+            <input type="text" placeholder="Search your Burger"
+                class="w-full sm:w-96 px-4 py-2 rounded-md text-black outline-none" />
+            <button class="bg-white text-black px-6 py-2 rounded-md font-bold">Search</button>
+        </div>
+
+        <!-- Filter buttons -->
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+            <button class="bg-yellow-500 text-black px-6 py-2 rounded-md font-bold">Special Offer</button>
+            <button class="bg-gray-800 hover:bg-gray-700 px-6 py-2 rounded-md">Vegg Burger</button>
+            <button class="bg-gray-800 hover:bg-gray-700 px-6 py-2 rounded-md">Pizza</button>
+            <button class="bg-gray-800 hover:bg-gray-700 px-6 py-2 rounded-md">Salad</button>
+            <button class="bg-gray-800 hover:bg-gray-700 px-6 py-2 rounded-md">Coffee</button>
+        </div>
+
+        <!-- Burgers Grid -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+
+            <!-- Single Item -->
+            <div class="flex items-center bg-gray-900 rounded-xl p-4 gap-4">
+                <img src="https://source.unsplash.com/200x200/?burger" class="w-28 h-28 object-cover rounded-lg"
+                    alt="burger">
+                <div>
+                    <h3 class="font-bold text-lg">Burger 1</h3>
+                    <p class="text-sm text-gray-400">Queso, tomate, cebolla, pan integral, carne, bacon, lechuga...</p>
+                    <p class="text-yellow-400 font-bold mt-2">$29.95</p>
+                </div>
+            </div>
+
+            <div class="flex items-center bg-gray-900 rounded-xl p-4 gap-4">
+                <img src="https://source.unsplash.com/200x200/?cheese-burger" class="w-28 h-28 object-cover rounded-lg"
+                    alt="burger">
+                <div>
+                    <h3 class="font-bold text-lg">Burger 2</h3>
+                    <p class="text-sm text-gray-400">Queso, tomate, cebolla, pan integral, carne, bacon, lechuga...</p>
+                    <p class="text-yellow-400 font-bold mt-2">$29.95</p>
+                </div>
+            </div>
+
+            <div class="flex items-center bg-gray-900 rounded-xl p-4 gap-4">
+                <img src="https://source.unsplash.com/200x200/?double-burger" class="w-28 h-28 object-cover rounded-lg"
+                    alt="burger">
+                <div>
+                    <h3 class="font-bold text-lg">Burger 3</h3>
+                    <p class="text-sm text-gray-400">Queso, tomate, cebolla, pan integral, carne, bacon, lechuga...</p>
+                    <p class="text-yellow-400 font-bold mt-2">$29.95</p>
+                </div>
+            </div>
+
+            <!-- Repeat as needed -->
+            <div class="flex items-center bg-gray-900 rounded-xl p-4 gap-4">
+                <img src="https://source.unsplash.com/200x200/?chicken-burger" class="w-28 h-28 object-cover rounded-lg"
+                    alt="burger">
+                <div>
+                    <h3 class="font-bold text-lg">Burger 4</h3>
+                    <p class="text-sm text-gray-400">Queso, tomate, cebolla, pan integral, carne, bacon, lechuga...</p>
+                    <p class="text-yellow-400 font-bold mt-2">$29.95</p>
+                </div>
+            </div>
+
+            <div class="flex items-center bg-gray-900 rounded-xl p-4 gap-4">
+                <img src="https://source.unsplash.com/200x200/?beef-burger" class="w-28 h-28 object-cover rounded-lg"
+                    alt="burger">
+                <div>
+                    <h3 class="font-bold text-lg">Burger 5</h3>
+                    <p class="text-sm text-gray-400">Queso, tomate, cebolla, pan integral, carne, bacon, lechuga...</p>
+                    <p class="text-yellow-400 font-bold mt-2">$29.95</p>
+                </div>
+            </div>
+
+            <div class="flex items-center bg-gray-900 rounded-xl p-4 gap-4">
+                <img src="https://source.unsplash.com/200x200/?spicy-burger" class="w-28 h-28 object-cover rounded-lg"
+                    alt="burger">
+                <div>
+                    <h3 class="font-bold text-lg">Burger 6</h3>
+                    <p class="text-sm text-gray-400">Queso, tomate, cebolla, pan integral, carne, bacon, lechuga...</p>
+                    <p class="text-yellow-400 font-bold mt-2">$29.95</p>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 
 </html>
