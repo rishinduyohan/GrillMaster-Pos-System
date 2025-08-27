@@ -24,9 +24,9 @@ if (navbarItem) {
                     </nav>
                     <div class="hidden md:flex items-center gap-3">
                     <div class="flex items-center gap-4">
-                    <button id="cartBtn" class="relative">
-                        🛒<span id="cartCount" class="absolute -top-2 -right-2 text-xs bg-red-600 text-white rounded-full px-1">0</span>
-                    </button>
+                     <div class="relative" id="cartBtn">
+                        <a href="cart.html" class="absolute -top-2 -right-2 text-1xl text-white rounded-full px-1">🛒</a>
+                    </div>
                       <input type="text" placeholder="Search your Burger" class="w-50 px-2 py-1 rounded-lg text-black outline-none" />
                     </div>
                         <a href="login.html" class="flex-1 text-center px-3 py-2 rounded-lg bg-accent text-white">Log In</a>
