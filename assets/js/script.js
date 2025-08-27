@@ -95,64 +95,43 @@ const drinkItems = [
         id: 1,
         name: "Coca-Cola",
         des: "Classic fizzy cola drink served chilled.",
-        img: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Coca-Cola_Glass_Bottle_Icon.png",
+        img: "assets/images/Classic Cola.jpg",
         price: "Rs.150"
     },
     {
         id: 2,
-        name: "Pepsi",
+        name: "Iced Coffee",
         des: "Refreshing cola with a bold taste.",
-        img: "https://upload.wikimedia.org/wikipedia/commons/2/2e/Pepsi_logo_2014.svg",
+        img: "assets/images/Chocolate Milkshake.jpg",
         price: "Rs.140"
     },
     {
         id: 3,
         name: "Sprite",
         des: "Lemon-lime flavored soft drink.",
-        img: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Sprite_Logo.svg",
+        img: "assets/images/Berry Blast.jpg",
         price: "Rs.130"
     },
     {
         id: 4,
         name: "Fanta Orange",
         des: "Fruity orange sparkling drink.",
-        img: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Fanta_logo.svg",
+        img: "assets/images/Icy Lemonade.jpg",
         price: "Rs.120"
     },
     {
         id: 5,
         name: "Mountain Dew",
         des: "Citrus-flavored energy soft drink.",
-        img: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Mountain_Dew_logo.svg",
+        img: "assets/images/Mint Mojito.jpg",
         price: "Rs.160"
     },
     {
         id: 6,
         name: "7UP",
         des: "Clear and refreshing lemon-lime drink.",
-        img: "https://upload.wikimedia.org/wikipedia/commons/4/4f/7up_logo_2014.svg",
+        img: "assets/images/Tropical Mango Shake.jpg",
         price: "Rs.140"
-    },
-    {
-        id: 7,
-        name: "Iced Coffee",
-        des: "Chilled coffee served with ice & milk.",
-        img: "https://upload.wikimedia.org/wikipedia/commons/4/45/Coffee_cup_icon.svg",
-        price: "Rs.200"
-    },
-    {
-        id: 8,
-        name: "Cold Brew",
-        des: "Smooth, slow-brewed cold coffee.",
-        img: "https://upload.wikimedia.org/wikipedia/commons/0/06/Coffee_cup_icon_2.svg",
-        price: "Rs.250"
-    },
-    {
-        id: 9,
-        name: "Lemon Iced Tea",
-        des: "Refreshing iced tea with lemon twist.",
-        img: "https://upload.wikimedia.org/wikipedia/commons/6/6b/Glass_of_Iced_Tea.png",
-        price: "Rs.180"
     }
 ];
 
@@ -198,7 +177,6 @@ let itemContainer = (array) => {
 }
 
 itemContainer(menuItems);
-
 //Search Items
 searchItems.addEventListener("keypress", e => {
     if (e.key === "Enter") {
