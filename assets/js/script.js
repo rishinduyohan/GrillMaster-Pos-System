@@ -87,7 +87,23 @@ const menuItems = [
     price: "Rs.770"
   }
 ];
-
+if(trendRecip){
+    for(let i = 0; i<3 ; i++){
+        let item = menuItems[i];
+        const div = document.createElement('div');
+        div.className = ""
+        div.innerHTML =`
+        <div class=" p-6 rounded-xl" >
+            <img src="${item.img}" class="w-full h-60 object-cover rounded-lg mb-4">
+            <h3 class="font-bold">${item.name}</h3>
+            <p class="text-sm text-gray-400">${item.des}</p>
+            <p class="text-yellow-400 font-bold">${item.price}</p>
+            <button class="mt-3 bg-yellow-500 px-4 py-1 rounded-full text-black font-bold">Order</button>
+        </div>
+        `;
+        trendRecip.appendChild(div);
+    }
+}
 if(items){
     menuItems.forEach(item => {
         const div = document.createElement('div');
@@ -100,6 +116,7 @@ if(items){
                 <p class="text-sm text-gray-400">${item.des}</p>
                 <p class="text-yellow-400 font-bold mt-2">${item.price}</p>
                 <button class="bg-yellow-500 text-black px-6 py-2 rounded-md font-bold mt-6">Add to Cart</button>
+                
             </div>
         `;
         items.appendChild(div);
