@@ -78,26 +78,26 @@ if(footerItem){
 
             <ul class="mt-6 space-y-4 text-sm">
               <li>
-                <a href="#" class="text-gray-700 transition hover:text-accent dark:text-gray-200">
-                  Burgers
+                <a href="index.html#home" class="text-gray-700 transition hover:text-accent dark:text-gray-200">
+                  Home
                 </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 transition hover:text-accent dark:text-gray-200">
-                  Cool Drinks
+                <a href="index.html#service" class="text-gray-700 transition hover:text-accent dark:text-gray-200">
+                  Services
                 </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 transition hover:text-accent dark:text-gray-200">
-                  Snacks
+                <a href="menu.html" class="text-gray-700 transition hover:text-accent dark:text-gray-200">
+                  Menu
                 </a>
               </li>
 
               <li>
-                <a href="#" class="text-gray-700 transition hover:text-accent dark:text-gray-200">
-                  Foodies
+                <a href="menu.html" class="text-gray-700 transition hover:text-accent dark:text-gray-200">
+                  Shop
                 </a>
               </li>
             </ul>
