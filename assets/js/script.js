@@ -3,7 +3,7 @@ const items = document.getElementById('menu-items');
 const trendRecip = document.getElementById('trends');
 const searchItems = document.getElementById('search-text');
 const searchBtn = document.getElementById('search-btn');
-
+const itemTable = document.getElementById('item-table');
 let cart = [];
 
 const menuItems = [
@@ -91,7 +91,7 @@ const menuItems = [
         img: "assets/images/Classic Cheeseburger.jpg",
         price: "Rs.770"
     },
-     {
+    {
         id: 12,
         name: "Coca-Cola",
         des: "Classic fizzy cola drink served chilled.",
@@ -166,7 +166,7 @@ let itemContainer = (array) => {
                 <p class="text-sm text-gray-400">${item.des}</p>
                 <p class="text-yellow-400 font-bold mt-2">${item.price}</p>
                 <div class="mt-6">
-                <a href="#" class="bg-yellow-500 text-black px-6 py-2 rounded-md font-bold">Add to Cart</a>
+                <button type="button" class="bg-yellow-500 text-black px-6 py-2 rounded-md font-bold">Add to cart</button>
                 </div>
             </div>
         `;
@@ -178,10 +178,107 @@ let itemContainer = (array) => {
 
 itemContainer(menuItems);
 
-addToCart=(id)=>{
+addToCart = (id) => {
     let obj = menuItems[id];
     console.log(obj);
+    const found = cart.find(cartItem => cartItem.id === id);
+    if (found) {
+      found.qty += 1;
+    } else {
+      cart.push({ ...obj, qty: 1 });
+    }
+    localStorage.setItem("mealId", id);
+    addItemsCart();
 }
+
+addItemsCart=()=>{
+    const cartList = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
+
+    cartList.innerHTML = "";
+    let total = 0;
+
+    cart.forEach(item => {
+        total += parseInt(item.price.replace("Rs.", "").trim()) * item.qty;
+
+        cartList.innerHTML += `
+       <li class="flex py-6">
+        <div class="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
+          <img
+            src="${item.img}"
+            alt="${item.name}"
+            class="size-full object-cover" />
+        </div>
+
+        <div class="ml-4 flex flex-1 flex-col">
+          <div>
+            <div class="flex justify-between text-base font-medium text-gray-900">
+              <h3>
+                <a href="#">${item.name}</a>
+              </h3>
+              <p class="ml-4">${item.price}</p>
+            </div>
+            <p class="mt-1 text-sm text-gray-500">${item.des}</p>
+          </div>
+          <div class="flex flex-1 items-end justify-between text-sm">
+            <p class="text-gray-500">Qty : ${item.qty}</p>
+
+            <div class="flex">
+              <button type="button"
+                class="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
+            </div>
+          </div>
+        </div>
+        </li>
+      `;
+    });
+
+    cartTotal.textContent = "Total: Rs. " + total;
+}
+//  function addToCart(item) {
+//     // Check if already in cart
+//     const found = cart.find(cartItem => cartItem.id === item.id);
+//     if (found) {
+//       found.qty += 1;
+//     } else {
+//       cart.push({ ...item, qty: 1 });
+//     }
+//     renderCart();
+//   }
+
+// function renderCart() {
+//     const cartList = document.getElementById("cart-items");
+//     const cartTotal = document.getElementById("cart-total");
+
+//     cartList.innerHTML = "";
+//     let total = 0;
+
+//     cart.forEach(item => {
+//         total += parseInt(item.price.replace("Rs.", "").trim()) * item.qty;
+
+//         cartList.innerHTML += `
+//        <td class="py-4">
+//             <div class="flex items-center">
+//                 <img class="h-16 w-16 mr-4" src="${item.img}" alt="Product image">
+//                 <span class="font-semibold">${item.name}</span>
+//             </div>
+//         </td>
+//         <td class="py-4">${item.price}</td>
+//         <td class="py-4">
+//            <div class="flex items-center">
+//                <button onclick="decreaseQty(this)"
+//                    class="border rounded-md py-2 px-4 mr-2">-</button>
+//                <span class="qty text-center w-8">1</span>
+//                <button onclick="increaseQty(this)"
+//                    class="border rounded-md py-2 px-4 ml-2">+</button>
+//            </div>
+//         </td>
+//       `;
+//     });
+
+//     cartTotal.textContent = "Total: Rs. " + total;
+// }
+
 //Search Items
 searchItems.addEventListener("keypress", e => {
     if (e.key === "Enter") {
@@ -196,47 +293,47 @@ function updateCart() {
 
     // Loop through each row
     document.querySelectorAll("tbody tr").forEach(row => {
-      const priceText = row.querySelector("td:nth-child(2)").innerText.replace("$", "");
-      const price = parseFloat(priceText);
+        const priceText = row.querySelector("td:nth-child(2)").innerText.replace("$", "");
+        const price = parseFloat(priceText);
 
-      const qtyEl = row.querySelector(".qty");
-      const qty = parseInt(qtyEl.innerText);
+        const qtyEl = row.querySelector(".qty");
+        const qty = parseInt(qtyEl.innerText);
 
-      const total = price * qty;
-      row.querySelector(".row-total").innerText = "$" + total.toFixed(2);
+        const total = price * qty;
+        row.querySelector(".row-total").innerText = "$" + total.toFixed(2);
 
-      subtotal += total;
+        subtotal += total;
     });
 
     // Update summary
     document.querySelector("#subtotal").innerText = "$" + subtotal.toFixed(2);
-    const taxes = subtotal * 0.1; 
+    const taxes = subtotal * 0.1;
     document.querySelector("#taxes").innerText = "$" + taxes.toFixed(2);
-    const shipping = subtotal > 0 ? 50 : 0; 
+    const shipping = subtotal > 0 ? 50 : 0;
     document.querySelector("#shipping").innerText = "$" + shipping.toFixed(2);
 
     const grandTotal = subtotal + taxes + shipping;
     document.querySelector("#grand-total").innerText = "$" + grandTotal.toFixed(2);
-  }
+}
 
-  // Increase quantity
-  function increaseQty(btn) {
+// Increase quantity
+function increaseQty(btn) {
     const qtyEl = btn.parentElement.querySelector(".qty");
     qtyEl.innerText = parseInt(qtyEl.innerText) + 1;
     updateCart();
-  }
+}
 
-  // Decrease quantity
-  function decreaseQty(btn) {
+// Decrease quantity
+function decreaseQty(btn) {
     const qtyEl = btn.parentElement.querySelector(".qty");
     let current = parseInt(qtyEl.innerText);
     if (current > 1) {
-      qtyEl.innerText = current - 1;
-      updateCart();
+        qtyEl.innerText = current - 1;
+        updateCart();
     }
-  }
+}
 
-  // Init
-  document.addEventListener("DOMContentLoaded", () => {
+// Init
+document.addEventListener("DOMContentLoaded", () => {
     updateCart();
-  });
+});
