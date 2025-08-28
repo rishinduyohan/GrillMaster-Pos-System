@@ -26,9 +26,6 @@
 <body class="bg-black text-white font-sans">
   <header class="sticky top-0 z-50 absolute backdrop-blur " id="navbar"></header>
   
-  <button command="show-modal" commandfor="drawer"
-    class="rounded-md bg-gray-950/5 px-2.5 py-1.5 text-sm font-semibold text-gray-900 hover:bg-gray-950/10">Open
-    drawer</button>
   <el-dialog>
     <dialog id="drawer" aria-labelledby="drawer-title"
       class="fixed inset-0 size-auto max-h-none max-w-none overflow-hidden bg-transparent not-open:hidden backdrop:bg-transparent">
@@ -55,14 +52,12 @@
                   </button>
                 </div>
               </div>
-
               <div class="mt-8">
                 <div class="flow-root">
                   <ul role="list" class="-my-6 divide-y divide-gray-200" id="cart-items"></ul>
                 </div>
               </div>
             </div>
-
             <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
               <div class="flex justify-between text-base font-medium text-gray-900">
                 <p>Subtotal</p>
