@@ -193,16 +193,11 @@ addToCart = (id) => {
     addItemsCart();
 }
 let total = 0;
-let itemPrice = "";
 
-getTotalPrice = (price, qty) => {
-    total += parseInt(price.replace("Rs.", "").trim()) * qty;
-    return total;
-}
 addItemsCart = () => {
     cartList.innerHTML = "";
     cart.forEach(item => {
-        total = getTotalPrice(item.price, item.qty);
+        total += parseInt(item.price.replace("Rs.", "").trim()) * item.cart;
         cartList.innerHTML += `
        <li class="flex py-6">
         <div class="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
@@ -219,7 +214,6 @@ addItemsCart = () => {
                 <a href="#">${item.name}</a>
               </h3>
               <p class="price ml-4">${item.price}</p>
-              ${itemPrice = item.price}
             </div>
             <p class="mt-1 text-sm text-gray-500">${item.des}</p>
           </div>
@@ -241,33 +235,40 @@ addItemsCart = () => {
     });
     cartTotal.textContent = "Total: Rs. " + total;
 }
-updateTotalPrice = (btn,qty) => {
-    let item = btn.closest(".cart-item");
-    let getPrice = itemPrice;
-    let getTotal = item.querySelector(".item-total");
 
-    total = getTotalPrice(getPrice, qty);
+updateTotalPrice = (btn, qty) => {
+    let item = btn.closest(".cart-item");                
+    let getPrice = item.querySelector(".price");         
+    let getTotal = item.querySelector(".item-total"); 
+    let price = parseInt(getPrice.innerText.replace(/[^0-9]/g, "")); 
+     total = price * qty;
+
     getTotal.innerText = "Rs." + total;
 }
+
+// Increase qty
 increaseQty = (btn) => {
     let container = btn.closest("div");
-    let qtyEl = container.querySelector(".qty");
-    let qty = parseInt(qtyEl.innerText.replace(/[^0-9]/g, ""));
-    qty = qty + 1;
-    qtyEl.innerText = "Qty : " + qty;
-    // console.log(qty);
-    updateTotalPrice(btn,qty);
+    let getQty = container.querySelector(".qty");
+    let qty = parseInt(getQty.innerText.replace(/[^0-9]/g, "")) + 1;
+
+    getQty.innerText = "Qty : " + qty;
+    updateTotalPrice(btn, qty);
 }
+
+// Decrease qty
 decreaseQty = (btn) => {
     let container = btn.closest("div");
-    let qtyEl = container.querySelector(".qty");
-    let qty = parseInt(qtyEl.innerText.replace(/[^0-9]/g, ""));
+    let getQty = container.querySelector(".qty");
+    let qty = parseInt(getQty.innerText.replace(/[^0-9]/g, ""));
+
     if (qty > 1) {
         qty--;
-        qtyEl.innerText = "Qty : " + qty;
-        updateTotalPrice(btn,qty);
+        getQty.innerText = "Qty : " + qty;
+        updateTotalPrice(btn, qty);
     }
 }
+
 function removeItem(btn) {
     console.log("Item removed from cart");
 }
