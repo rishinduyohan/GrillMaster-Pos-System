@@ -137,7 +137,7 @@ const menuItems = [
     }
 ];
 if (trendRecip) {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 9; i < 12; i++) {
         let item = menuItems[i];
         const div = document.createElement('div');
         div.setAttribute("data-aos", "zoom-in");
@@ -148,7 +148,7 @@ if (trendRecip) {
             <p class="text-sm text-gray-400">${item.des}</p>
             <p class="text-yellow-400 font-bold">${item.price}</p>
             <div class="mt-4">
-            <a href="#" class="mt-3 bg-yellow-500 px-4 py-1 rounded-full text-black font-bold">Order</a>
+            <a href="menu.html" class="mt-3 bg-yellow-500 px-4 py-1 rounded-full text-black font-bold">Order</a>
             </div>
         </div>
         `;
