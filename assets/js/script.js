@@ -197,7 +197,8 @@ let total = 0;
 addItemsCart = () => {
     cartList.innerHTML = "";
     cart.forEach(item => {
-        total += parseInt(item.price.replace("Rs.", "").trim()) * 1;
+        let tot = 0;
+        tot += parseInt(item.price.replace("Rs.", "").trim()) * 1;
         cartList.innerHTML += `
        <li class="flex py-6">
         <div class="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
@@ -226,14 +227,15 @@ addItemsCart = () => {
                 class="border rounded-md  py-1 px-3 mt-4">+</button>
                 <div class="flex">
               <button type="button"
-                class="font-medium text-indigo-600 hover:text-indigo-500" onclick="removeItem(this)" >Remove</button>
+                class="font-medium text-indigo-600 hover:text-indigo-500" onclick="removeItem(${item.id})" >Remove</button>
             </div>
           </div>
         </div>
         </li>
       `;
+      cartTotal.textContent = "Total: Rs. " + tot;
+      total = tot;
     });
-    cartTotal.textContent = "Total: Rs. " + total;
 }
 
 updateTotalPrice = (btn, qty) => {
@@ -241,9 +243,18 @@ updateTotalPrice = (btn, qty) => {
     let getPrice = item.querySelector(".price");         
     let getTotal = item.querySelector(".item-total"); 
     let price = parseInt(getPrice.innerText.replace(/[^0-9]/g, "")); 
-     total = price * qty;
+    total = price * qty;
 
     getTotal.innerText = "Rs." + total;
+}
+
+function updateCartTotal() {
+  let allTotals = document.querySelectorAll(".item-total");
+  let grandTotal = 0;
+  allTotals.forEach(el => {
+    grandTotal += parseInt(el.innerText.replace(/[^0-9]/g, ""));
+  });
+  cartTotal.innerText = "Rs." + grandTotal;
 }
 
 // Increase qty
@@ -254,6 +265,7 @@ increaseQty = (btn) => {
 
     getQty.innerText = "Qty : " + qty;
     updateTotalPrice(btn, qty);
+    updateCartTotal();
 }
 
 // Decrease qty
@@ -266,11 +278,18 @@ decreaseQty = (btn) => {
         qty--;
         getQty.innerText = "Qty : " + qty;
         updateTotalPrice(btn, qty);
+        updateCartTotal();
     }
 }
 
-function removeItem(btn) {
-    console.log("Item removed from cart");
+function removeItem(id) {
+    // filter out the item
+  cart = cart.filter(item => item.id !== id);
+
+  // re-render UI
+  addItemsCart();
+
+  console.log("Removed item id:", id);
 }
 //Search Items
 // searchItems.addEventListener("keypress", e => {
