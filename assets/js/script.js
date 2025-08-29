@@ -226,7 +226,7 @@ addItemsCart=()=>{
                 class="border rounded-md  py-1 px-3 mt-4">+</button>
                 <div class="flex">
               <button type="button"
-                class="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
+                class="font-medium text-indigo-600 hover:text-indigo-500" onclick="removeItem(this)" >Remove</button>
             </div>
           </div>
         </div>
@@ -252,7 +252,9 @@ decreaseQty=(btn)=> {
     qtyEl.innerText = "Qty : " + qty;
   }
 }
-
+function removeItem(btn) {
+  console.log("Item removed from cart");
+}
 //Search Items
 // searchItems.addEventListener("keypress", e => {
 //     if (e.key === "Enter") {
