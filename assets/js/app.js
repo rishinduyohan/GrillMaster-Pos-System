@@ -24,13 +24,13 @@ if (navbarItem) {
                     </nav>
                     <div class="hidden md:flex items-center gap-3">
                     <div class="flex items-center gap-4">
-                     <button command="show-modal" commandfor="drawer"
-                      class="rounded-md bg-gray-950/5 px-2.5 py-1.5 text-sm font-semibold text-gray-900 hover:bg-gray-950/10">🛒
-                      </button>
                       <input type="text" placeholder="Search your Burger" class="w-50 px-2 py-1 rounded-lg text-black outline-none" />
                     </div>
                         <a href="login.html" class="flex-1 text-center px-3 py-2 rounded-lg bg-accent text-white">Log In</a>
                     </div>
+                    <button command="show-modal" commandfor="drawer"
+                      class="rounded-md bg-gray-950/5 px-2.5 py-1.5 text-sm font-semibold text-gray-900 hover:bg-gray-950/10">Cart 🛒
+                      </button>
                     <button id="menuBtn"
                         class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-secondary/20">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
@@ -47,7 +47,6 @@ if (navbarItem) {
                     <a href="index.html#service" class="block py-2">Service</a>
                     <a href="menu.html" class="block py-2">Menu</a>
                     <a href="menu.html" class="block py-2">Shop</a>
-                    <a href="cart.html" class="block py-2">Cart 🛒 </a>
                     <div class="pt-2 border-t border-black/5 flex gap-2">
                         <a href="login.html" class="flex-1 text-center px-3 py-2 rounded-lg bg-accent text-white">Log In</a>
                     </div>
