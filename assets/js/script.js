@@ -197,7 +197,7 @@ let total = 0;
 addItemsCart = () => {
     cartList.innerHTML = "";
     cart.forEach(item => {
-        total += parseInt(item.price.replace("Rs.", "").trim()) * item.cart;
+        total += parseInt(item.price.replace("Rs.", "").trim()) * 1;
         cartList.innerHTML += `
        <li class="flex py-6">
         <div class="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
