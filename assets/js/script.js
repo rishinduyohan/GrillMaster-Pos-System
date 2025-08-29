@@ -220,7 +220,6 @@ addItemsCart=()=>{
           <div class="flex flex-1 items-end justify-between text-sm">
             <button onclick="decreaseQty(this)"
                 class="border rounded-md py-1 px-3  mt-4">-</button>
-
             <p class="text-gray-500 qty">Qty : ${item.qty}</p>
 
             <button onclick="increaseQty(this)" 
@@ -236,22 +235,14 @@ addItemsCart=()=>{
     });
     cartTotal.textContent = "Total: Rs. " + total;
 }
-function increaseQty(btn) {
-    // let qtyText = row.querySelector(".qty").innerText;
-    // let qty = parseInt(qtyText.trim()); 
-
-    const priceText = row.querySelector(".qty").innerText;
-    const price = parseFloat(priceText.replace(/[^0-9.]/g, ""));
-    console.log(price);
+increaseQty=(btn)=> {
+    let container = btn.closest("div"); 
+    let qtyEl = container.querySelector(".qty");
+    let qty = parseInt(qtyEl.innerText.replace(/[^0-9]/g, ""));
+    qty = qty + 1;
+    qtyEl.innerText = "Qty : " + qty;
+    console.log(qty);
 }
-
-// function decreaseQty(btn) {
-//     const qtyEl = btn.parentElement.querySelector(".qty");
-//     let current = parseInt(qtyEl.innerText);
-//     if (current > 1) {
-//         qtyEl.innerText = current - 1;
-//     }
-// }
 
 // function renderCart() {
 //     const cartList = document.getElementById("cart-items");
