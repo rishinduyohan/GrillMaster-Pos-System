@@ -243,7 +243,15 @@ increaseQty=(btn)=> {
     qtyEl.innerText = "Qty : " + qty;
     console.log(qty);
 }
-
+decreaseQty=(btn)=> {
+  let container = btn.closest("div");
+  let qtyEl = container.querySelector(".qty");
+  let qty = parseInt(qtyEl.innerText.replace(/[^0-9]/g, ""));
+  if (qty > 1) {
+    qty = qty - 1;
+    qtyEl.innerText = "Qty : " + qty;
+  }
+}
 // function renderCart() {
 //     const cartList = document.getElementById("cart-items");
 //     const cartTotal = document.getElementById("cart-total");
