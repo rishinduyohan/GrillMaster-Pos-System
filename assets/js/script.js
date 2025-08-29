@@ -283,52 +283,7 @@ decreaseQty = (btn) => {
 }
 
 function removeItem(id) {
-    // filter out the item
   cart = cart.filter(item => item.id !== id);
-
-  // re-render UI
   addItemsCart();
-
   console.log("Removed item id:", id);
 }
-//Search Items
-// searchItems.addEventListener("keypress", e => {
-//     if (e.key === "Enter") {
-//         e.preventDefault();
-//         let value = searchItems.value;
-//         searchItems.value = "";
-//     }
-// });
-
-// function updateCart() {
-//     let subtotal = 0;
-
-//     // Loop through each row
-//     document.querySelectorAll("tbody tr").forEach(row => {
-//         const priceText = row.querySelector("td:nth-child(2)").innerText.replace("$", "");
-//         const price = parseFloat(priceText);
-
-//         const qtyEl = row.querySelector(".qty");
-//         const qty = parseInt(qtyEl.innerText);
-
-//         const total = price * qty;
-//         row.querySelector(".row-total").innerText = "$" + total.toFixed(2);
-
-//         subtotal += total;
-//     });
-
-//     // Update summary
-//     document.querySelector("#subtotal").innerText = "$" + subtotal.toFixed(2);
-//     const taxes = subtotal * 0.1;
-//     document.querySelector("#taxes").innerText = "$" + taxes.toFixed(2);
-//     const shipping = subtotal > 0 ? 50 : 0;
-//     document.querySelector("#shipping").innerText = "$" + shipping.toFixed(2);
-
-//     const grandTotal = subtotal + taxes + shipping;
-//     document.querySelector("#grand-total").innerText = "$" + grandTotal.toFixed(2);
-// }
-
-// // Init
-// document.addEventListener("DOMContentLoaded", () => {
-//     updateCart();
-// });
