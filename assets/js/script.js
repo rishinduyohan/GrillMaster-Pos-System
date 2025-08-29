@@ -233,8 +233,8 @@ addItemsCart = () => {
         </div>
         </li>
       `;
-      cartTotal.textContent = "Total: Rs. " + tot;
-      total = tot;
+      cartTotal.textContent = "Total: Rs. " + total;
+      total += tot;
     });
 }
 
