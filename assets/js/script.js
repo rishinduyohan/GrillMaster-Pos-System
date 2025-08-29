@@ -194,13 +194,10 @@ addToCart = (id) => {
 addItemsCart=()=>{
     const cartList = document.getElementById("cart-items");
     const cartTotal = document.getElementById("cart-total");
-
     cartList.innerHTML = "";
     let total = 0;
-
     cart.forEach(item => {
         total += parseInt(item.price.replace("Rs.", "").trim()) * item.qty;
-
         cartList.innerHTML += `
        <li class="flex py-6">
         <div class="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
@@ -221,9 +218,15 @@ addItemsCart=()=>{
             <p class="mt-1 text-sm text-gray-500">${item.des}</p>
           </div>
           <div class="flex flex-1 items-end justify-between text-sm">
-            <p class="text-gray-500">Qty : ${item.qty}</p>
+            <button onclick="decreaseQty(this)"
+                class="border rounded-md py-1 px-3  mt-4">-</button>
 
-            <div class="flex">
+            <p class="text-gray-500 qty">Qty : ${item.qty}</p>
+
+            <button onclick="increaseQty(this)" 
+                class="border rounded-md  py-1 px-3 mt-4">+</button>
+            
+                <div class="flex">
               <button type="button"
                 class="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
             </div>
@@ -232,19 +235,24 @@ addItemsCart=()=>{
         </li>
       `;
     });
-
     cartTotal.textContent = "Total: Rs. " + total;
 }
-//  function addToCart(item) {
-//     // Check if already in cart
-//     const found = cart.find(cartItem => cartItem.id === item.id);
-//     if (found) {
-//       found.qty += 1;
-//     } else {
-//       cart.push({ ...item, qty: 1 });
+function increaseQty(btn) {
+    // let qtyText = row.querySelector(".qty").innerText;
+    // let qty = parseInt(qtyText.trim()); 
+
+    const priceText = row.querySelector(".qty").innerText;
+    const price = parseFloat(priceText.replace(/[^0-9.]/g, ""));
+    console.log(price);
+}
+
+// function decreaseQty(btn) {
+//     const qtyEl = btn.parentElement.querySelector(".qty");
+//     let current = parseInt(qtyEl.innerText);
+//     if (current > 1) {
+//         qtyEl.innerText = current - 1;
 //     }
-//     renderCart();
-//   }
+// }
 
 // function renderCart() {
 //     const cartList = document.getElementById("cart-items");
@@ -280,60 +288,60 @@ addItemsCart=()=>{
 // }
 
 //Search Items
-searchItems.addEventListener("keypress", e => {
-    if (e.key === "Enter") {
-        e.preventDefault();
-        let value = searchItems.value;
-        searchItems.value = "";
-    }
-});
+// searchItems.addEventListener("keypress", e => {
+//     if (e.key === "Enter") {
+//         e.preventDefault();
+//         let value = searchItems.value;
+//         searchItems.value = "";
+//     }
+// });
 
-function updateCart() {
-    let subtotal = 0;
+// function updateCart() {
+//     let subtotal = 0;
 
-    // Loop through each row
-    document.querySelectorAll("tbody tr").forEach(row => {
-        const priceText = row.querySelector("td:nth-child(2)").innerText.replace("$", "");
-        const price = parseFloat(priceText);
+//     // Loop through each row
+//     document.querySelectorAll("tbody tr").forEach(row => {
+//         const priceText = row.querySelector("td:nth-child(2)").innerText.replace("$", "");
+//         const price = parseFloat(priceText);
 
-        const qtyEl = row.querySelector(".qty");
-        const qty = parseInt(qtyEl.innerText);
+//         const qtyEl = row.querySelector(".qty");
+//         const qty = parseInt(qtyEl.innerText);
 
-        const total = price * qty;
-        row.querySelector(".row-total").innerText = "$" + total.toFixed(2);
+//         const total = price * qty;
+//         row.querySelector(".row-total").innerText = "$" + total.toFixed(2);
 
-        subtotal += total;
-    });
+//         subtotal += total;
+//     });
 
-    // Update summary
-    document.querySelector("#subtotal").innerText = "$" + subtotal.toFixed(2);
-    const taxes = subtotal * 0.1;
-    document.querySelector("#taxes").innerText = "$" + taxes.toFixed(2);
-    const shipping = subtotal > 0 ? 50 : 0;
-    document.querySelector("#shipping").innerText = "$" + shipping.toFixed(2);
+//     // Update summary
+//     document.querySelector("#subtotal").innerText = "$" + subtotal.toFixed(2);
+//     const taxes = subtotal * 0.1;
+//     document.querySelector("#taxes").innerText = "$" + taxes.toFixed(2);
+//     const shipping = subtotal > 0 ? 50 : 0;
+//     document.querySelector("#shipping").innerText = "$" + shipping.toFixed(2);
 
-    const grandTotal = subtotal + taxes + shipping;
-    document.querySelector("#grand-total").innerText = "$" + grandTotal.toFixed(2);
-}
+//     const grandTotal = subtotal + taxes + shipping;
+//     document.querySelector("#grand-total").innerText = "$" + grandTotal.toFixed(2);
+// }
 
-// Increase quantity
-function increaseQty(btn) {
-    const qtyEl = btn.parentElement.querySelector(".qty");
-    qtyEl.innerText = parseInt(qtyEl.innerText) + 1;
-    updateCart();
-}
+// // Increase quantity
+// function increaseQty(btn) {
+//     const qtyEl = btn.parentElement.querySelector(".qty");
+//     qtyEl.innerText = parseInt(qtyEl.innerText) + 1;
+//     updateCart();
+// }
 
-// Decrease quantity
-function decreaseQty(btn) {
-    const qtyEl = btn.parentElement.querySelector(".qty");
-    let current = parseInt(qtyEl.innerText);
-    if (current > 1) {
-        qtyEl.innerText = current - 1;
-        updateCart();
-    }
-}
+// // Decrease quantity
+// function decreaseQty(btn) {
+//     const qtyEl = btn.parentElement.querySelector(".qty");
+//     let current = parseInt(qtyEl.innerText);
+//     if (current > 1) {
+//         qtyEl.innerText = current - 1;
+//         updateCart();
+//     }
+// }
 
-// Init
-document.addEventListener("DOMContentLoaded", () => {
-    updateCart();
-});
+// // Init
+// document.addEventListener("DOMContentLoaded", () => {
+//     updateCart();
+// });
