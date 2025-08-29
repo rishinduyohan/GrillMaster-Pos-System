@@ -252,38 +252,6 @@ decreaseQty=(btn)=> {
     qtyEl.innerText = "Qty : " + qty;
   }
 }
-// function renderCart() {
-//     const cartList = document.getElementById("cart-items");
-//     const cartTotal = document.getElementById("cart-total");
-
-//     cartList.innerHTML = "";
-//     let total = 0;
-
-//     cart.forEach(item => {
-//         total += parseInt(item.price.replace("Rs.", "").trim()) * item.qty;
-
-//         cartList.innerHTML += `
-//        <td class="py-4">
-//             <div class="flex items-center">
-//                 <img class="h-16 w-16 mr-4" src="${item.img}" alt="Product image">
-//                 <span class="font-semibold">${item.name}</span>
-//             </div>
-//         </td>
-//         <td class="py-4">${item.price}</td>
-//         <td class="py-4">
-//            <div class="flex items-center">
-//                <button onclick="decreaseQty(this)"
-//                    class="border rounded-md py-2 px-4 mr-2">-</button>
-//                <span class="qty text-center w-8">1</span>
-//                <button onclick="increaseQty(this)"
-//                    class="border rounded-md py-2 px-4 ml-2">+</button>
-//            </div>
-//         </td>
-//       `;
-//     });
-
-//     cartTotal.textContent = "Total: Rs. " + total;
-// }
 
 //Search Items
 // searchItems.addEventListener("keypress", e => {
@@ -320,23 +288,6 @@ decreaseQty=(btn)=> {
 
 //     const grandTotal = subtotal + taxes + shipping;
 //     document.querySelector("#grand-total").innerText = "$" + grandTotal.toFixed(2);
-// }
-
-// // Increase quantity
-// function increaseQty(btn) {
-//     const qtyEl = btn.parentElement.querySelector(".qty");
-//     qtyEl.innerText = parseInt(qtyEl.innerText) + 1;
-//     updateCart();
-// }
-
-// // Decrease quantity
-// function decreaseQty(btn) {
-//     const qtyEl = btn.parentElement.querySelector(".qty");
-//     let current = parseInt(qtyEl.innerText);
-//     if (current > 1) {
-//         qtyEl.innerText = current - 1;
-//         updateCart();
-//     }
 // }
 
 // // Init
