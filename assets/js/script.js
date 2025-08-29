@@ -4,6 +4,8 @@ const trendRecip = document.getElementById('trends');
 const searchItems = document.getElementById('search-text');
 const searchBtn = document.getElementById('search-btn');
 const itemTable = document.getElementById('item-table');
+const cartList = document.getElementById("cart-items");
+const cartTotal = document.getElementById("cart-total");
 let cart = [];
 
 const menuItems = [
@@ -190,14 +192,19 @@ addToCart = (id) => {
     localStorage.setItem("mealId", id);
     addItemsCart();
 }
+let total = 0;
 
+getTotalPrice=(price,qty)=>{
+    total += parseInt(price.replace("Rs.", "").trim()) * qty;
+    return total;
+}
+updateTotalPrice=()=>{
+    
+}
 addItemsCart=()=>{
-    const cartList = document.getElementById("cart-items");
-    const cartTotal = document.getElementById("cart-total");
     cartList.innerHTML = "";
-    let total = 0;
     cart.forEach(item => {
-        total += parseInt(item.price.replace("Rs.", "").trim()) * item.qty;
+        total = getTotalPrice(item.price,item.qty);
         cartList.innerHTML += `
        <li class="flex py-6">
         <div class="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
@@ -213,7 +220,7 @@ addItemsCart=()=>{
               <h3>
                 <a href="#">${item.name}</a>
               </h3>
-              <p class="ml-4">${item.price}</p>
+              <p class="price ml-4">${item.price}</p>
             </div>
             <p class="mt-1 text-sm text-gray-500">${item.des}</p>
           </div>
@@ -242,13 +249,14 @@ increaseQty=(btn)=> {
     qty = qty + 1;
     qtyEl.innerText = "Qty : " + qty;
     console.log(qty);
+
 }
 decreaseQty=(btn)=> {
   let container = btn.closest("div");
   let qtyEl = container.querySelector(".qty");
   let qty = parseInt(qtyEl.innerText.replace(/[^0-9]/g, ""));
   if (qty > 1) {
-    qty = qty - 1;
+    qty--;
     qtyEl.innerText = "Qty : " + qty;
   }
 }
