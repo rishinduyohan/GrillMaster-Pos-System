@@ -185,26 +185,24 @@ addToCart = (id) => {
     console.log(obj);
     const found = cart.find(cartItem => cartItem.id === id);
     if (found) {
-      found.qty += 1;
+        found.qty += 1;
     } else {
-      cart.push({ ...obj, qty: 1 });
+        cart.push({ ...obj, qty: 1 });
     }
     localStorage.setItem("mealId", id);
     addItemsCart();
 }
 let total = 0;
+let itemPrice = "";
 
-getTotalPrice=(price,qty)=>{
+getTotalPrice = (price, qty) => {
     total += parseInt(price.replace("Rs.", "").trim()) * qty;
     return total;
 }
-updateTotalPrice=()=>{
-    
-}
-addItemsCart=()=>{
+addItemsCart = () => {
     cartList.innerHTML = "";
     cart.forEach(item => {
-        total = getTotalPrice(item.price,item.qty);
+        total = getTotalPrice(item.price, item.qty);
         cartList.innerHTML += `
        <li class="flex py-6">
         <div class="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
@@ -221,6 +219,7 @@ addItemsCart=()=>{
                 <a href="#">${item.name}</a>
               </h3>
               <p class="price ml-4">${item.price}</p>
+              ${itemPrice = item.price}
             </div>
             <p class="mt-1 text-sm text-gray-500">${item.des}</p>
           </div>
@@ -242,26 +241,35 @@ addItemsCart=()=>{
     });
     cartTotal.textContent = "Total: Rs. " + total;
 }
-increaseQty=(btn)=> {
-    let container = btn.closest("div"); 
+updateTotalPrice = (btn,qty) => {
+    let item = btn.closest(".cart-item");
+    let getPrice = itemPrice;
+    let getTotal = item.querySelector(".item-total");
+
+    total = getTotalPrice(getPrice, qty);
+    getTotal.innerText = "Rs." + total;
+}
+increaseQty = (btn) => {
+    let container = btn.closest("div");
     let qtyEl = container.querySelector(".qty");
     let qty = parseInt(qtyEl.innerText.replace(/[^0-9]/g, ""));
     qty = qty + 1;
     qtyEl.innerText = "Qty : " + qty;
-    console.log(qty);
-
+    // console.log(qty);
+    updateTotalPrice(btn,qty);
 }
-decreaseQty=(btn)=> {
-  let container = btn.closest("div");
-  let qtyEl = container.querySelector(".qty");
-  let qty = parseInt(qtyEl.innerText.replace(/[^0-9]/g, ""));
-  if (qty > 1) {
-    qty--;
-    qtyEl.innerText = "Qty : " + qty;
-  }
+decreaseQty = (btn) => {
+    let container = btn.closest("div");
+    let qtyEl = container.querySelector(".qty");
+    let qty = parseInt(qtyEl.innerText.replace(/[^0-9]/g, ""));
+    if (qty > 1) {
+        qty--;
+        qtyEl.innerText = "Qty : " + qty;
+        updateTotalPrice(btn,qty);
+    }
 }
 function removeItem(btn) {
-  console.log("Item removed from cart");
+    console.log("Item removed from cart");
 }
 //Search Items
 // searchItems.addEventListener("keypress", e => {
