@@ -4,6 +4,8 @@ const trendRecip = document.getElementById('trends');
 const searchItems = document.getElementById('search-text');
 const searchBtn = document.getElementById('search-btn');
 const itemTable = document.getElementById('item-table');
+const cartList = document.getElementById("cart-items");
+const cartTotal = document.getElementById("cart-total");
 let cart = [];
 
 const menuItems = [
@@ -135,7 +137,7 @@ const menuItems = [
     }
 ];
 if (trendRecip) {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 9; i < 12; i++) {
         let item = menuItems[i];
         const div = document.createElement('div');
         div.setAttribute("data-aos", "zoom-in");
@@ -146,7 +148,7 @@ if (trendRecip) {
             <p class="text-sm text-gray-400">${item.des}</p>
             <p class="text-yellow-400 font-bold">${item.price}</p>
             <div class="mt-4">
-            <a href="#" class="mt-3 bg-yellow-500 px-4 py-1 rounded-full text-black font-bold">Order</a>
+            <a href="menu.html" class="mt-3 bg-yellow-500 px-4 py-1 rounded-full text-black font-bold">Order</a>
             </div>
         </div>
         `;
@@ -183,24 +185,20 @@ addToCart = (id) => {
     console.log(obj);
     const found = cart.find(cartItem => cartItem.id === id);
     if (found) {
-      found.qty += 1;
+        found.qty += 1;
     } else {
-      cart.push({ ...obj, qty: 1 });
+        cart.push({ ...obj, qty: 1 });
     }
     localStorage.setItem("mealId", id);
     addItemsCart();
 }
+let total = 0;
 
-addItemsCart=()=>{
-    const cartList = document.getElementById("cart-items");
-    const cartTotal = document.getElementById("cart-total");
-
+addItemsCart = () => {
     cartList.innerHTML = "";
-    let total = 0;
-
     cart.forEach(item => {
-        total += parseInt(item.price.replace("Rs.", "").trim()) * item.qty;
-
+        let tot = 0;
+        tot += parseInt(item.price.replace("Rs.", "").trim()) * 1;
         cartList.innerHTML += `
        <li class="flex py-6">
         <div class="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
@@ -216,124 +214,76 @@ addItemsCart=()=>{
               <h3>
                 <a href="#">${item.name}</a>
               </h3>
-              <p class="ml-4">${item.price}</p>
+              <p class="price ml-4">${item.price}</p>
             </div>
             <p class="mt-1 text-sm text-gray-500">${item.des}</p>
           </div>
           <div class="flex flex-1 items-end justify-between text-sm">
-            <p class="text-gray-500">Qty : ${item.qty}</p>
+            <button onclick="decreaseQty(this)"
+                class="border rounded-md py-1 px-3  mt-4">-</button>
+            <p class="text-gray-500 qty">Qty : ${item.qty}</p>
 
-            <div class="flex">
+            <button onclick="increaseQty(this)" 
+                class="border rounded-md  py-1 px-3 mt-4">+</button>
+                <div class="flex">
               <button type="button"
-                class="font-medium text-indigo-600 hover:text-indigo-500">Remove</button>
+                class="font-medium text-indigo-600 hover:text-indigo-500" onclick="removeItem(${item.id})" >Remove</button>
             </div>
           </div>
         </div>
         </li>
       `;
+      cartTotal.textContent = "Total: Rs. " + total;
+      total += tot;
     });
-
-    cartTotal.textContent = "Total: Rs. " + total;
-}
-//  function addToCart(item) {
-//     // Check if already in cart
-//     const found = cart.find(cartItem => cartItem.id === item.id);
-//     if (found) {
-//       found.qty += 1;
-//     } else {
-//       cart.push({ ...item, qty: 1 });
-//     }
-//     renderCart();
-//   }
-
-// function renderCart() {
-//     const cartList = document.getElementById("cart-items");
-//     const cartTotal = document.getElementById("cart-total");
-
-//     cartList.innerHTML = "";
-//     let total = 0;
-
-//     cart.forEach(item => {
-//         total += parseInt(item.price.replace("Rs.", "").trim()) * item.qty;
-
-//         cartList.innerHTML += `
-//        <td class="py-4">
-//             <div class="flex items-center">
-//                 <img class="h-16 w-16 mr-4" src="${item.img}" alt="Product image">
-//                 <span class="font-semibold">${item.name}</span>
-//             </div>
-//         </td>
-//         <td class="py-4">${item.price}</td>
-//         <td class="py-4">
-//            <div class="flex items-center">
-//                <button onclick="decreaseQty(this)"
-//                    class="border rounded-md py-2 px-4 mr-2">-</button>
-//                <span class="qty text-center w-8">1</span>
-//                <button onclick="increaseQty(this)"
-//                    class="border rounded-md py-2 px-4 ml-2">+</button>
-//            </div>
-//         </td>
-//       `;
-//     });
-
-//     cartTotal.textContent = "Total: Rs. " + total;
-// }
-
-//Search Items
-searchItems.addEventListener("keypress", e => {
-    if (e.key === "Enter") {
-        e.preventDefault();
-        let value = searchItems.value;
-        searchItems.value = "";
-    }
-});
-
-function updateCart() {
-    let subtotal = 0;
-
-    // Loop through each row
-    document.querySelectorAll("tbody tr").forEach(row => {
-        const priceText = row.querySelector("td:nth-child(2)").innerText.replace("$", "");
-        const price = parseFloat(priceText);
-
-        const qtyEl = row.querySelector(".qty");
-        const qty = parseInt(qtyEl.innerText);
-
-        const total = price * qty;
-        row.querySelector(".row-total").innerText = "$" + total.toFixed(2);
-
-        subtotal += total;
-    });
-
-    // Update summary
-    document.querySelector("#subtotal").innerText = "$" + subtotal.toFixed(2);
-    const taxes = subtotal * 0.1;
-    document.querySelector("#taxes").innerText = "$" + taxes.toFixed(2);
-    const shipping = subtotal > 0 ? 50 : 0;
-    document.querySelector("#shipping").innerText = "$" + shipping.toFixed(2);
-
-    const grandTotal = subtotal + taxes + shipping;
-    document.querySelector("#grand-total").innerText = "$" + grandTotal.toFixed(2);
 }
 
-// Increase quantity
-function increaseQty(btn) {
-    const qtyEl = btn.parentElement.querySelector(".qty");
-    qtyEl.innerText = parseInt(qtyEl.innerText) + 1;
-    updateCart();
+updateTotalPrice = (btn, qty) => {
+    let item = btn.closest(".cart-item");                
+    let getPrice = item.querySelector(".price");         
+    let getTotal = item.querySelector(".item-total"); 
+    let price = parseInt(getPrice.innerText.replace(/[^0-9]/g, "")); 
+    total = price * qty;
+
+    getTotal.innerText = "Rs." + total;
 }
 
-// Decrease quantity
-function decreaseQty(btn) {
-    const qtyEl = btn.parentElement.querySelector(".qty");
-    let current = parseInt(qtyEl.innerText);
-    if (current > 1) {
-        qtyEl.innerText = current - 1;
-        updateCart();
+function updateCartTotal() {
+  let allTotals = document.querySelectorAll(".item-total");
+  let grandTotal = 0;
+  allTotals.forEach(el => {
+    grandTotal += parseInt(el.innerText.replace(/[^0-9]/g, ""));
+  });
+  cartTotal.innerText = "Rs." + grandTotal;
+}
+
+// Increase qty
+increaseQty = (btn) => {
+    let container = btn.closest("div");
+    let getQty = container.querySelector(".qty");
+    let qty = parseInt(getQty.innerText.replace(/[^0-9]/g, "")) + 1;
+
+    getQty.innerText = "Qty : " + qty;
+    updateTotalPrice(btn, qty);
+    updateCartTotal();
+}
+
+// Decrease qty
+decreaseQty = (btn) => {
+    let container = btn.closest("div");
+    let getQty = container.querySelector(".qty");
+    let qty = parseInt(getQty.innerText.replace(/[^0-9]/g, ""));
+
+    if (qty > 1) {
+        qty--;
+        getQty.innerText = "Qty : " + qty;
+        updateTotalPrice(btn, qty);
+        updateCartTotal();
     }
 }
 
-// Init
-document.addEventListener("DOMContentLoaded", () => {
-    updateCart();
-});
+function removeItem(id) {
+  cart = cart.filter(item => item.id !== id);
+  addItemsCart();
+  console.log("Removed item id:", id);
+}
