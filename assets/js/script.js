@@ -168,7 +168,7 @@ let itemContainer = (array) => {
                 <p class="text-sm text-gray-400">${item.des}</p>
                 <p class="text-yellow-400 font-bold mt-2">${item.price}</p>
                 <div class="mt-6">
-                <button type="button" class="bg-yellow-500 text-black px-6 py-2 rounded-md font-bold">Add to cart</button>
+                <button type="button" class="bg-yellow-500 text-black px-6 py-2 rounded-md font-bold" onclick="alert('Added Success')" >Add to cart</button>
                 </div>
             </div>
         `;
