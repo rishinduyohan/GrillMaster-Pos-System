@@ -2,16 +2,16 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GrillMaster burgers</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="assets/js/theme.js"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"
     rel="stylesheet">
+
   <style>
     body {
       background-image: url('assets/images/steptodown.com845080.jpg');
@@ -21,135 +21,116 @@
       background-attachment: fixed;
     }
   </style>
-
 </head>
 
 <body class="bg-black text-white font-sans">
-  <!-- Navbar -->
   <header class="sticky top-0 z-50 absolute backdrop-blur " id="navbar"></header>
-  <div>
-    <img src="assets/images/burger.gif" alt="burger background"
-      class="absolute inset-0 w-full h-full object-cover -z-10">
+  
+  <el-dialog>
+    <dialog id="drawer" aria-labelledby="drawer-title"
+      class="fixed inset-0 size-auto max-h-none max-w-none overflow-hidden bg-transparent not-open:hidden backdrop:bg-transparent">
+      <el-dialog-backdrop
+        class="absolute inset-0 bg-gray-500/75 transition-opacity duration-500 ease-in-out data-closed:opacity-0"></el-dialog-backdrop>
 
-    <!-- Hero -->
-    <section class="relative flex flex-col items-center justify-center text-center min-h-screen px-6">
-      <div class="absolute inset-0 -z-10">
-        <h1 class="text-6xl sm:text-8xl lg:text-[10rem] font-extrabold tracking-widest text-gray-200 opacity-70">BURGER
-        </h1>
-      </div>
-      <div class="bg-black/50 backdrop-blur-md mt-[-2rem] p-10 sm:p-10 rounded-2xl max-w-2xl">
-        <h2 class="text-2xl font-bold mb-4 tracking-widest"><span class="text-accent">Grill</span>Master</h2>
-        <p class="text-gray-200 text-sm sm:text-base leading-relaxed">
-          A burger is a patty of ground beef grilled and placed between two halves of a bun.
-          Slices of raw onion, lettuce, bacon, mayonnaise, and other ingredients add flavor.
-          Burgers are considered an American food but are popular around the world.
-          In Japan, teriyaki burgers are popular.
-        </p>
-        <div class="mt-6">
-          <a href="menu.html"
-            class="mt-6 bg-yellow-500 text-black px-6 py-2 rounded-full font-bold shadow-lg hover:bg-yellow-400 transition" data-aos="fade-up"> Order Now</a>
-        </div>
-        <div class="flex flex-col sm:flex-row justify-around mt-8 text-sm gap-6 sm:gap-0">
-          <div class="flex flex-col items-center" data-aos="fade-up">
-            <div class="flex -space-x-2 mb-2">
-              <img class="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-black"
-                src="https://randomuser.me/api/portraits/men/32.jpg" />
-              <img class="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-black"
-                src="https://randomuser.me/api/portraits/women/45.jpg" />
-              <img class="w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 border-black"
-                src="https://randomuser.me/api/portraits/men/12.jpg" />
+      <div tabindex="0" class="absolute inset-0 pl-10 focus:outline-none sm:pl-16">
+        
+        <el-dialog-panel
+          class="ml-auto block size-full max-w-md transform transition duration-500 ease-in-out data-closed:translate-x-full sm:duration-700">
+          <div class="cart-item flex h-full flex-col sm:w-full overflow-y-auto backdrop-blur-md shadow-xl text-white">
+            <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+              <div class="flex items-start justify-between">
+                <h2 id="drawer-title" class="text-lg font-medium text-gray-900">Shopping cart</h2>
+                <div class="ml-3 flex h-7 items-center">
+                  <button type="button" command="close" commandfor="drawer"
+                    class="relative -m-2 p-2 text-gray-400 hover:text-gray-500">
+                    <span class="absolute -inset-0.5"></span>
+                    <span class="sr-only">Close panel</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
+                      aria-hidden="true" class="size-6">
+                      <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="mt-8">
+                <div class="flow-root">
+                  <ul role="list" class="-my-6 divide-y divide-gray-200" id="cart-items"></ul>
+                </div>
+              </div>
             </div>
-            <span class="font-bold">56k+</span>
-            <span>Reviews</span>
+            <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
+              <div class="flex justify-between text-base font-medium text-gray-900">
+                <p>Subtotal</p>
+                <p id="cart-total" class="item-total">Rs.0.00</p>
+              </div>
+              <p class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
+              <div class="mt-6">
+                <a href="#"
+                  class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-xs hover:bg-indigo-700">Checkout</a>
+              </div>
+              <div class="mt-6 flex justify-center text-center text-sm text-gray-500">
+                <p>
+                  or
+                  <button type="button" command="close" commandfor="drawer"
+                    class="font-medium text-indigo-600 hover:text-indigo-500">
+                    Continue Shopping
+                    <span aria-hidden="true"> &rarr;</span>
+                  </button>
+                </p>
+              </div>
+            </div>
           </div>
-          <div class="flex flex-col items-center" data-aos="fade-up">
-            <img src="https://img.icons8.com/fluency/48/city.png" class="w-7 h-7 sm:w-8 sm:h-8 mb-2" />
-            <span class="font-bold">15+</span>
-            <span>City</span>
-          </div>
-          <div class="flex flex-col items-center" data-aos="fade-up">
-            <img src="https://img.icons8.com/color/48/hamburger.png" class="w-7 h-7 sm:w-8 sm:h-8 mb-2" />
-            <span class="font-bold">445+</span>
-            <span>Items</span>
-          </div>
+        </el-dialog-panel>
+      </div>
+    </dialog>
+  </el-dialog>
+
+  <section class=" py-16 px-6">
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-3 mb-10">
+      <input type="text" id="search-text" placeholder="Search your Burger"
+        class="w-full sm:w-96 px-4 py-2 rounded-md text-black outline-none" />
+      <a href="#" id="search-btn" class="bg-accent text-white px-6 py-2 rounded-md font-bold">Search</a>
+    </div>
+    <div class="flex flex-wrap justify-center gap-4 mb-12">
+      <button class="bg-yellow-500 text-black px-6 py-2 rounded-md font-bold">Special Offer</button>
+      <button class="bg-gray-800 hover:bg-gray-700 px-6 py-2 rounded-md">Vegg Burger</button>
+      <button class="bg-gray-800 hover:bg-gray-700 px-6 py-2 rounded-md">Pizza</button>
+      <button class="bg-gray-800 hover:bg-gray-700 px-6 py-2 rounded-md">Salad</button>
+      <button class="bg-gray-800 hover:bg-gray-700 px-6 py-2 rounded-md">Coffee</button>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto" id="menu-items"> </div>
+
+    <section class="bg-black text-white py-16 px-6 md:px-12">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 items-center gap-10">
+        <div data-aos="zoom-in-up">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Structure of a <span class="text-yellow-400">Burger</span>
+          </h2>
+          <p class="text-gray-300 leading-relaxed mb-6">
+            Every burger is a masterpiece of layers. From the soft bun on top to the juicy patty and
+            fresh veggies inside, each ingredient adds flavor and texture. The balance of cheese,
+            sauces, and crispy greens makes every bite an experience.
+          </p>
+          <ul class="space-y-3 text-gray-400">
+            <li>🍞 Top Bun - soft & fresh</li>
+            <li>🥬 Lettuce - crunchy freshness</li>
+            <li>🍅 Tomato & Onion - tangy & crisp</li>
+            <li>🧀 Cheese Slice - creamy & melty</li>
+            <li>🥩 Patty - juicy & flavorful</li>
+            <li>🍞 Bottom Bun - holds it all together</li>
+          </ul>
         </div>
+        <div class="flex justify-center">
+          <img src="assets/images/steptodown.com779424.jpg" alt="Burger Structure" class="max-h-[400px] w-auto"
+            data-aos="fade-up-left">
+        </div>
+
       </div>
     </section>
-  </div>
-
-  <!-- Trending Recipes -->
-  <section id="menu" class="px-6 py-16 bg-gray-900 text-center">
-    <div class="grid lg:grid-cols-2">
-      <h2 class="text-3xl font-bold mb-8">Trending Recipes</h2>
-      <div class="mt-4">
-        <a href="menu.html" class="bg-yellow-500 text-black px-6 py-2 rounded-md font-bold">See more >></a>
-      </div>
-    </div>
-    <hr>
-    <div class="grid sm:grid-cols-3 gap-6" id="trends"></div>
-    <hr>
-  </section>
-  <!-- Services -->
-  <section id="services" class="px-6 py-16 text-center" data-aos="fade-up">
-    <h2 class=" sm:text-4xl mb-8">How we can serve you and <br><span class="text-accent">Deliver</span> your favorite's
-      <span class="text-yellow-400">Food</span>
-    </h2>
-
-    <p class="max-w-2xl mx-auto text-gray-400 mb-10">
-      We always provide the best service for you and deliver your favorite food to your location.
-    </p>
-    <div class="grid sm:grid-cols-3 gap-8">
-      <div class="bg-gray-900 p-6 rounded-xl items-center justify-center" data-aos="fade-up">
-        <div>
-          <img src="assets/images/portrait-person-holding-fast-food-burger-Photoroom.png"
-            class="w-full h-60 object-cover rounded-lg mb-4">
-        </div>
-        <h3 class="font-bold text-yellow-400 mb-2">Order ready to serve</h3>
-        <p class="text-sm text-gray-300">Ready-to-eat food that will not be cooked or reheated before serving.</p>
-      </div>
-      <div class="bg-gray-900 p-6 rounded-xl" data-aos="fade-up"> 
-        <img src="assets/images/kerfin7_nea_3142-Photoroom.png" class="w-auto h-60 object-cover rounded-lg mb-4">
-        <h3 class="font-bold text-yellow-400 mb-2">Deliver your food</h3>
-        <p class="text-sm text-gray-300">We deliver hot and fresh burgers right to your doorstep, anytime.</p>
-      </div>
-      <div class="bg-gray-900 p-6 rounded-xl" data-aos="fade-up">
-        <img src="assets/images/33369-Photoroom.png" class="w-full  h-60 object-cover rounded-lg mb-4">
-        <h3 class="font-bold text-yellow-400 mb-2">Order has arrived</h3>
-        <p class="text-sm text-gray-300">We ensure your order arrives on time, maintaining the taste and quality.</p>
-      </div>
-    </div>
-  </section>
-  <!--Food review-->
-  <section class="bg-black text-white py-20 px-6 md:px-16 flex flex-col md:flex-row items-center gap-10">
-    <div class="w-full md:w-1/2 flex justify-center">
-      <img src="assets/images/steptodown.com606286.jpg" alt="burger flames" class="max-h-[500px] object-contain" data-aos="zoom-in-right">
-    </div>
-    <div class="w-full md:w-1/2" data-aos="fade-up">
-      <h2 class="text-2xl md:text-4xl font-bold mb-6">
-        What our customers <br />
-        says about <span class="text-yellow-400">foodies</span>
-      </h2>
-      <div class="flex items-start space-x-4">
-        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Senuri Fernando"
-          class="w-14 h-14 rounded-full object-cover border-2 border-white">
-        <div>
-          <h3 class="font-semibold text-lg">Senuri Fernando</h3>
-          <p class="text-sm text-gray-400 mb-3">Chief</p>
-          <p class="text-gray-300 text-sm leading-relaxed max-w-md">
-            The customer service was outstanding, and the product was exactly what I was looking for.
-            I was so pleased with the service I received from this business. They went above and
-            beyond to help me find the perfect item. I was very impressed with the quality of the
-            product I received.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--Footer section-->
-  <footer class="border-t border-black/5 bg-black" id="footer"></footer>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="assets/js/app.js"></script>
-  <script src="assets/js/script.js"></script>
+    <footer class="border-t border-black/5 bg-black" id="footer"></footer>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
